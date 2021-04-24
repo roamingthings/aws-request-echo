@@ -1,0 +1,526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grundbuchshop Link Generator 1`] = `
+Object {
+  "Outputs": Object {
+    "RequestEchoAPIEndpoint36F6151F": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "RequestEchoAPIC1588159",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "RequestEchoAPIDeploymentStageprod936E42ED",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24ArtifactHashBA91B77F": Object {
+      "Description": "Artifact hash for asset \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+      "Type": "String",
+    },
+    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3Bucket4D46ABB5": Object {
+      "Description": "S3 bucket for asset \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+      "Type": "String",
+    },
+    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861": Object {
+      "Description": "S3 key for asset version \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+      "Type": "String",
+    },
+    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147ArtifactHash31E0F128": Object {
+      "Description": "Artifact hash for asset \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+      "Type": "String",
+    },
+    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3Bucket3D8BB609": Object {
+      "Description": "S3 bucket for asset \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+      "Type": "String",
+    },
+    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B": Object {
+      "Description": "S3 key for asset version \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": Object {
+      "DependsOn": Array [
+        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+        "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3Bucket4D46ABB5",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "logs:PutRetentionPolicy",
+                "logs:DeleteRetentionPolicy",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+        "Roles": Array [
+          Object {
+            "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "RequestEchoAPIAccountD3011D6E": Object {
+      "DependsOn": Array [
+        "RequestEchoAPIC1588159",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "RequestEchoAPICloudWatchRole48A5E64C",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "RequestEchoAPIC1588159": Object {
+      "Properties": Object {
+        "Name": "echo",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "RequestEchoAPICloudWatchRole48A5E64C": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "RequestEchoAPIDeployment9B97A4F7985260fd4f2569c42c943da6ff94f797": Object {
+      "DependsOn": Array [
+        "RequestEchoAPIechoANY5DFC4ED2",
+        "RequestEchoAPIecho610E4834",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "RequestEchoAPIDeploymentStageprod936E42ED": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "RequestEchoAPIDeployment9B97A4F7985260fd4f2569c42c943da6ff94f797",
+        },
+        "MethodSettings": Array [
+          Object {
+            "HttpMethod": "*",
+            "ResourcePath": "/~1echo",
+            "ThrottlingBurstLimit": 1,
+            "ThrottlingRateLimit": 1,
+          },
+        ],
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "RequestEchoAPIecho610E4834": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "RequestEchoAPIC1588159",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "echo",
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "RequestEchoAPIechoANY5DFC4ED2": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "ANY",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "requestEchoFunctionD1A47844",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "RequestEchoAPIecho610E4834",
+        },
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "RequestEchoAPIechoANYApiPermissionMyTestStackRequestEchoAPI8C0447AEANYechoC55282AE": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "requestEchoFunctionD1A47844",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "RequestEchoAPIC1588159",
+              },
+              "/",
+              Object {
+                "Ref": "RequestEchoAPIDeploymentStageprod936E42ED",
+              },
+              "/*/echo",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "RequestEchoAPIechoANYApiPermissionTestMyTestStackRequestEchoAPI8C0447AEANYechoF7A18F28": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "requestEchoFunctionD1A47844",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "RequestEchoAPIC1588159",
+              },
+              "/test-invoke-stage/*/echo",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "requestEchoFunctionD1A47844": Object {
+      "DependsOn": Array [
+        "requestEchoFunctionServiceRoleDefaultPolicy81BBE5CD",
+        "requestEchoFunctionServiceRole4A40A1E7",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3Bucket3D8BB609",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "FunctionName": "requestEchoFunction",
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "requestEchoFunctionServiceRole4A40A1E7",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs14.x",
+        "TracingConfig": Object {
+          "Mode": "PassThrough",
+        },
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "requestEchoFunctionLogRetentionF52CA6EC": Object {
+      "Properties": Object {
+        "LogGroupName": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "/aws/lambda/",
+              Object {
+                "Ref": "requestEchoFunctionD1A47844",
+              },
+            ],
+          ],
+        },
+        "RetentionInDays": 1,
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::LogRetention",
+    },
+    "requestEchoFunctionServiceRole4A40A1E7": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "requestEchoFunctionServiceRoleDefaultPolicy81BBE5CD": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "requestEchoFunctionServiceRoleDefaultPolicy81BBE5CD",
+        "Roles": Array [
+          Object {
+            "Ref": "requestEchoFunctionServiceRole4A40A1E7",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+  },
+}
+`;

@@ -1,0 +1,55 @@
+---
+
+env:
+  es6: true
+  node: true
+  jest: true
+
+extends:
+  - eslint:recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:import/typescript
+  - plugin:@typescript-eslint/recommended   # Uses the recommended rules from the @typescript-eslint/eslint-plugin
+  - plugin:prettier/recommended             # Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+
+parser: '@typescript-eslint/parser'         # Specifies the ESLint parser
+
+parserOptions:
+  ecmaVersion: 2018                         # Allows for the parsing of modern ECMAScript features
+  sourceType: module                        # Allows for the use of imports
+  project: ./tsconfig.json
+
+settings:
+  import/parsers:
+    '@typescript-eslint/parser': ['.ts', '.tsx']
+  import/resolver:                          # see https://www.npmjs.com/package/eslint-import-resolver-typescript for config
+    node: {}
+    typescript:
+      directory: ./tsconfig.json
+
+overrides:
+  - files: ['packages/**/*.ts']
+    excludedFiles: ['**/*.test.ts', '**/*.d.ts']
+
+rules:
+  '@typescript-eslint/interface-name-prefix': 0
+  '@typescript-eslint/no-empty-interface': 1   # TODO: change back to 2
+  '@typescript-eslint/no-use-before-define': 1 # TODO: change back to 2
+  "camelcase": [1, {"properties": "always"}]   # TODO: change back to 2
+  'prettier/prettier':
+    - 2
+    - { 'singleQuote': true,  'printWidth': 140, 'trailingComma': 'all' }
+
+  # Require all imported dependencies are actually declared in package.json
+  'import/no-extraneous-dependencies':
+    - error
+    - devDependencies:                # Only allow importing devDependencies from:
+        - '**/test/**'                # --> Unit tests
+        - '**/**.test.ts'             # --> Unit tests
+      optionalDependencies: false     # Disallow importing optional dependencies (those shouldn't be in use in the project)
+      peerDependencies: false         # Disallow importing peer dependencies (that aren't also direct dependencies)
+
+  # Require all imported libraries actually resolve (!!required for import/no-extraneous-dependencies to work!!)
+  'import/no-unresolved':
+    - error

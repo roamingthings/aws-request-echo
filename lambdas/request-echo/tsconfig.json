@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es2018",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "outDir": "build",
+      "rootDir": "lib"
+    },
+    "exclude": [
+      "node_modules",
+      "test"
+    ]
+  }
