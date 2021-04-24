@@ -5,7 +5,7 @@ import * as path from 'path';
 export const loadEnvironment = () => {
     const envFile = path.resolve(process.cwd(), '.env')
     if (fs.existsSync(envFile)) {
-        const result = dotenv.config()
+        const result = dotenv.config({ path: envFile })
 
         if (result.error) {
             throw result.error

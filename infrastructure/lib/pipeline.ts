@@ -1,14 +1,20 @@
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as actions from '@aws-cdk/aws-codepipeline-actions';
-import { GitHubTrigger } from '@aws-cdk/aws-codepipeline-actions';
 import { CdkPipeline, SimpleSynthAction } from '@aws-cdk/pipelines';
 import * as cdk from '@aws-cdk/core';
 import { ProdStage } from './stages';
 import { LinuxBuildImage, BuildEnvironmentVariableType } from '@aws-cdk/aws-codebuild';
 import { Accounts, repo, gitHubTokenSecretName } from "./common/config";
 
+export interface PipelineStackProps extends cdk.StackProps {
+  accountId: string;
+  region: string;
+  ownerEmail: string;
+  githubTokenSecretName: string;
+}
+
 export class PipelineStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: cdk.Construct, id: string, props: PipelineStackProps) {
     super(scope, id, props);
 
     const sourceArtifact = new codepipeline.Artifact();
@@ -25,19 +31,19 @@ export class PipelineStack extends cdk.Stack {
       environmentVariables: {
         ACCOUNT_ID: {
           type: BuildEnvironmentVariableType.PLAINTEXT,
-          value: Accounts.prod.account,
+          value: props.accountId,
         },
         REGION: {
           type: BuildEnvironmentVariableType.PLAINTEXT,
-          value: Accounts.prod.region,
+          value: props.region,
         },
         OWNER_EMAIL: {
           type: BuildEnvironmentVariableType.PLAINTEXT,
-          value: process.env.OWNER_EMAIL,
+          value: props.ownerEmail,
         },
         GITHUB_TOKEN_SECRET_NAME: {
           type: BuildEnvironmentVariableType.PLAINTEXT,
-          value: process.env.GITHUB_TOKEN_SECRET_NAME,
+          value: props.githubTokenSecretName,
         }
       },
     });

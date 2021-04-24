@@ -1,4 +1,4 @@
-import {loadEnvironment} from "./environment";
+import { loadEnvironment } from "./environment";
 
 loadEnvironment();
 

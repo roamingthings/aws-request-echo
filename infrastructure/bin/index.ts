@@ -10,4 +10,8 @@ new PipelineStack(app, 'request-echo-service-pipeline-stack', {
     ...tags,
   },
   env: Accounts.prod,
+  accountId: Accounts.prod.account as string,
+  region: Accounts.prod.region as string,
+  ownerEmail: process.env.OWNER_EMAIL as string,
+  githubTokenSecretName: process.env.GITHUB_TOKEN_SECRET_NAME as string,
 });

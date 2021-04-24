@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Grundbuchshop Link Generator 1`] = `
+exports[`Infrastructure Request Echo Service Stack is valid 1`] = `
 Object {
   "Outputs": Object {
     "RequestEchoAPIEndpoint36F6151F": Object {
@@ -316,7 +316,7 @@ Object {
               Object {
                 "Ref": "AWS::Partition",
               },
-              ":execute-api:eu-central-1:985043000596:",
+              ":execute-api:eu-central-1:testaccount:",
               Object {
                 "Ref": "RequestEchoAPIC1588159",
               },
@@ -349,7 +349,7 @@ Object {
               Object {
                 "Ref": "AWS::Partition",
               },
-              ":execute-api:eu-central-1:985043000596:",
+              ":execute-api:eu-central-1:testaccount:",
               Object {
                 "Ref": "RequestEchoAPIC1588159",
               },
