@@ -1,14 +1,11 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { tags, Accounts } from '../lib/common/config';
-import { RequestEchoServiceStack } from '../lib/stacks/request-echo-service';
-import { loadEnvironment } from "../lib/common/environment";
-
-loadEnvironment();
+import { Accounts, tags } from '../lib/common/config';
+import { PipelineStack } from "../lib/pipeline";
 
 const app = new cdk.App();
-new RequestEchoServiceStack(app, `request-echo-service-stack`, {
+new PipelineStack(app, 'request-echo-service-pipeline-stack', {
   tags: {
     ...tags,
   },

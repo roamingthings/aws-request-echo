@@ -12,11 +12,7 @@ Object {
             Object {
               "Ref": "RequestEchoAPIC1588159",
             },
-            ".execute-api.",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            ".",
+            ".execute-api.eu-central-1.",
             Object {
               "Ref": "AWS::URLSuffix",
             },
@@ -43,16 +39,16 @@ Object {
       "Description": "S3 key for asset version \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
       "Type": "String",
     },
-    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147ArtifactHash31E0F128": Object {
-      "Description": "Artifact hash for asset \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+    "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30ArtifactHash64B7FD19": Object {
+      "Description": "Artifact hash for asset \\"a92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30\\"",
       "Type": "String",
     },
-    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3Bucket3D8BB609": Object {
-      "Description": "S3 bucket for asset \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+    "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30S3Bucket2DEA40FE": Object {
+      "Description": "S3 bucket for asset \\"a92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30\\"",
       "Type": "String",
     },
-    "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B": Object {
-      "Description": "S3 key for asset version \\"979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147\\"",
+    "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30S3VersionKey7D807CAC": Object {
+      "Description": "S3 key for asset version \\"a92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30\\"",
       "Type": "String",
     },
   },
@@ -218,7 +214,7 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "RequestEchoAPIDeployment9B97A4F7985260fd4f2569c42c943da6ff94f797": Object {
+    "RequestEchoAPIDeployment9B97A4F7b7f227e6d6e243a7ab4a9c0ccbc53e8d": Object {
       "DependsOn": Array [
         "RequestEchoAPIechoANY5DFC4ED2",
         "RequestEchoAPIecho610E4834",
@@ -234,12 +230,12 @@ Object {
     "RequestEchoAPIDeploymentStageprod936E42ED": Object {
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "RequestEchoAPIDeployment9B97A4F7985260fd4f2569c42c943da6ff94f797",
+          "Ref": "RequestEchoAPIDeployment9B97A4F7b7f227e6d6e243a7ab4a9c0ccbc53e8d",
         },
         "MethodSettings": Array [
           Object {
             "HttpMethod": "*",
-            "ResourcePath": "/~1echo",
+            "ResourcePath": "/*",
             "ThrottlingBurstLimit": 1,
             "ThrottlingRateLimit": 1,
           },
@@ -281,11 +277,7 @@ Object {
                 Object {
                   "Ref": "AWS::Partition",
                 },
-                ":apigateway:",
-                Object {
-                  "Ref": "AWS::Region",
-                },
-                ":lambda:path/2015-03-31/functions/",
+                ":apigateway:eu-central-1:lambda:path/2015-03-31/functions/",
                 Object {
                   "Fn::GetAtt": Array [
                     "requestEchoFunctionD1A47844",
@@ -324,15 +316,7 @@ Object {
               Object {
                 "Ref": "AWS::Partition",
               },
-              ":execute-api:",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              ":",
-              Object {
-                "Ref": "AWS::AccountId",
-              },
-              ":",
+              ":execute-api:eu-central-1:985043000596:",
               Object {
                 "Ref": "RequestEchoAPIC1588159",
               },
@@ -365,15 +349,7 @@ Object {
               Object {
                 "Ref": "AWS::Partition",
               },
-              ":execute-api:",
-              Object {
-                "Ref": "AWS::Region",
-              },
-              ":",
-              Object {
-                "Ref": "AWS::AccountId",
-              },
-              ":",
+              ":execute-api:eu-central-1:985043000596:",
               Object {
                 "Ref": "RequestEchoAPIC1588159",
               },
@@ -392,7 +368,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3Bucket3D8BB609",
+            "Ref": "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30S3Bucket2DEA40FE",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -405,7 +381,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B",
+                          "Ref": "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30S3VersionKey7D807CAC",
                         },
                       ],
                     },
@@ -418,7 +394,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters979a479710521d2acf25f8ccaf2c344e57058249c01cd93a06360305699e5147S3VersionKey0AFBC62B",
+                          "Ref": "AssetParametersa92f3e53333acad09ccf655463f18c021851eaa5b8887d000aca5d4f8a1c1e30S3VersionKey7D807CAC",
                         },
                       ],
                     },
