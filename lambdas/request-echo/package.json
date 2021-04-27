@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "aws-lambda": "^1.0.6",
-    "aws-sdk": "^2.892.0",
+    "aws-sdk": "^2.893.0",
     "aws-xray-sdk-core": "^3.3.1"
   }
 }
