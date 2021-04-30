@@ -29,6 +29,11 @@ export class RequestEchoServiceStack extends cdk.Stack {
 
         const api = new apigw.RestApi(this, 'Request Echo API', {
             restApiName: 'echo',
+            defaultCorsPreflightOptions: {
+                allowOrigins: apigw.Cors.ALL_ORIGINS,
+                allowMethods: apigw.Cors.ALL_METHODS,
+                allowCredentials: true,
+            },
             deployOptions: {
                 // This could be done on the API level. However in case there is a need to throttle individual methods
                 methodOptions: {
