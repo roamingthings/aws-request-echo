@@ -214,10 +214,12 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "RequestEchoAPIDeployment9B97A4F7b7f227e6d6e243a7ab4a9c0ccbc53e8d": Object {
+    "RequestEchoAPIDeployment9B97A4F7ed867cee4dd95cb14c8c8b54683d8132": Object {
       "DependsOn": Array [
         "RequestEchoAPIechoANY5DFC4ED2",
+        "RequestEchoAPIechoOPTIONSF90AF2C5",
         "RequestEchoAPIecho610E4834",
+        "RequestEchoAPIOPTIONS38C10D4E",
       ],
       "Properties": Object {
         "Description": "Automatically created by the RestApi construct",
@@ -230,7 +232,7 @@ Object {
     "RequestEchoAPIDeploymentStageprod936E42ED": Object {
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "RequestEchoAPIDeployment9B97A4F7b7f227e6d6e243a7ab4a9c0ccbc53e8d",
+          "Ref": "RequestEchoAPIDeployment9B97A4F7ed867cee4dd95cb14c8c8b54683d8132",
         },
         "MethodSettings": Array [
           Object {
@@ -246,6 +248,50 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+    "RequestEchoAPIOPTIONS38C10D4E": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": Object {
+          "IntegrationResponses": Array [
+            Object {
+              "ResponseParameters": Object {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": Object {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": Array [
+          Object {
+            "ResponseParameters": Object {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": Object {
+          "Fn::GetAtt": Array [
+            "RequestEchoAPIC1588159",
+            "RootResourceId",
+          ],
+        },
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "RequestEchoAPIecho610E4834": Object {
       "Properties": Object {
@@ -359,6 +405,47 @@ Object {
         },
       },
       "Type": "AWS::Lambda::Permission",
+    },
+    "RequestEchoAPIechoOPTIONSF90AF2C5": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "Integration": Object {
+          "IntegrationResponses": Array [
+            Object {
+              "ResponseParameters": Object {
+                "method.response.header.Access-Control-Allow-Credentials": "'true'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,PUT,POST,DELETE,PATCH,HEAD'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+              },
+              "StatusCode": "204",
+            },
+          ],
+          "RequestTemplates": Object {
+            "application/json": "{ statusCode: 200 }",
+          },
+          "Type": "MOCK",
+        },
+        "MethodResponses": Array [
+          Object {
+            "ResponseParameters": Object {
+              "method.response.header.Access-Control-Allow-Credentials": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Origin": true,
+            },
+            "StatusCode": "204",
+          },
+        ],
+        "ResourceId": Object {
+          "Ref": "RequestEchoAPIecho610E4834",
+        },
+        "RestApiId": Object {
+          "Ref": "RequestEchoAPIC1588159",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "requestEchoFunctionD1A47844": Object {
       "DependsOn": Array [
