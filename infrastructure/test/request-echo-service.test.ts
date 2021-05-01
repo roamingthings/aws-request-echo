@@ -25,6 +25,20 @@ describe('Infrastructure', () => {
             }
         });
         // THEN
+        expect.addSnapshotSerializer({
+            test: val => typeof val === 'string',
+            print: val => {
+                const sanitizedVal = (val as string).replace(
+                    /AssetParameters([A-Fa-f0-9]{64})(\w+)/,
+                    'AssetParameters[HASH REMOVED]'
+                )
+                .replace(
+                    /(\w+) (\w+) for asset\s?(version)?\s?"([A-Fa-f0-9]{64})"/,
+                    '$1 $2 for asset $3 [HASH REMOVED]'
+                );
+                return `"${sanitizedVal}"`;
+            },
+        });
         expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot()
     });
 });

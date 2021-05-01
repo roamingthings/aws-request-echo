@@ -27,28 +27,28 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24ArtifactHashBA91B77F": Object {
-      "Description": "Artifact hash for asset \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "Artifact hash for asset  [HASH REMOVED]",
       "Type": "String",
     },
-    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3Bucket4D46ABB5": Object {
-      "Description": "S3 bucket for asset \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "S3 bucket for asset  [HASH REMOVED]",
       "Type": "String",
     },
-    "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861": Object {
-      "Description": "S3 key for asset version \\"67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "S3 key for asset version [HASH REMOVED]",
       "Type": "String",
     },
-    "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915ArtifactHash3739FFE6": Object {
-      "Description": "Artifact hash for asset \\"7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "Artifact hash for asset  [HASH REMOVED]",
       "Type": "String",
     },
-    "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915S3Bucket8649792A": Object {
-      "Description": "S3 bucket for asset \\"7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "S3 bucket for asset  [HASH REMOVED]",
       "Type": "String",
     },
-    "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915S3VersionKeyA4EE70C6": Object {
-      "Description": "S3 key for asset version \\"7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915\\"",
+    "AssetParameters[HASH REMOVED]": Object {
+      "Description": "S3 key for asset version [HASH REMOVED]",
       "Type": "String",
     },
   },
@@ -61,7 +61,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3Bucket4D46ABB5",
+            "Ref": "AssetParameters[HASH REMOVED]",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -74,7 +74,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861",
+                          "Ref": "AssetParameters[HASH REMOVED]",
                         },
                       ],
                     },
@@ -87,7 +87,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters67b7823b74bc135986aa72f889d6a8da058d0c4a20cbc2dfc6f78995fdd2fc24S3VersionKeyB0F28861",
+                          "Ref": "AssetParameters[HASH REMOVED]",
                         },
                       ],
                     },
@@ -455,7 +455,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915S3Bucket8649792A",
+            "Ref": "AssetParameters[HASH REMOVED]",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -468,7 +468,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915S3VersionKeyA4EE70C6",
+                          "Ref": "AssetParameters[HASH REMOVED]",
                         },
                       ],
                     },
@@ -481,7 +481,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters7db0199440a88f9f0a3386af5e162f56b90b557b983d99d0ccfae96a53df8915S3VersionKeyA4EE70C6",
+                          "Ref": "AssetParameters[HASH REMOVED]",
                         },
                       ],
                     },
